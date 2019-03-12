@@ -1,0 +1,27 @@
+{
+  "name": "daruk.org",
+  "version": "0.1.0",
+  "description": "daruk document",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daruk-framework/daruk.org.git"
+  },
+  "keywords": [
+    "daruk",
+    "daruk document"
+  ],
+  "author": "Youjingyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daruk-framework/daruk.org/issues"
+  },
+  "homepage": "https://github.com/daruk-framework/daruk.org#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "vuepress": "^1.0.0-alpha.44"
+  }
+}
