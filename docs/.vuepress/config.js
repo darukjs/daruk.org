@@ -4,12 +4,13 @@ module.exports = {
   base: '/daruk.org/',
   themeConfig: {
     logo: '/logo.png',
-    logoLink: 'https://github.com/daruk-framework',
+    logoLink: 'https://github.com/daruk-framework/daruk',
     repo: 'daruk-framework/daruk',
     editLinks: true,
     docsDir: 'docs',
     sidebar: [
       '/',
+      '/quick-start',
       {
         title: '功能',
         children: [

@@ -52,5 +52,5 @@ DarukEvents.on('exit', (err:Error, daruk:Daruk) => {
   console.log(err)
 })
 ```
-注意 exit 事件的回调中只能执行同步操作，如果想做异步操作，请参考 [Daruk.exitHook](https://gitlab.weibo.cn/daruk/daruk/blob/refactor/docs/api.md#desc-%E8%BF%9B%E7%A8%8B%E9%80%80%E5%87%BA%E7%9A%84%E5%9B%9E%E8%B0%83)
+注意 exit 事件的回调中只能执行同步操作，如果想做异步操作，请参考 [Daruk.exitHook](./api.html#exithook)
 
