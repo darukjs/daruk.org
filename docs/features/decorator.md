@@ -1,4 +1,4 @@
-# Daruk 装饰器
+# 装饰器
 
 #### http method 装饰器
 
@@ -18,7 +18,7 @@ Daruk 会自动将约定目录中的内容挂载到 Daruk 实例或者 context�
 - @config，注入项目配置，可以接收一个字符串参数，指定要注入配置中的某个字段的内容
 - @util，注入 util，可以接收一个字符串参数，指定要注入的 util 名
 - @glue，注入 glue，可以接收一个字符串参数，指定要注入的 glue 名
-- @logger，注入 logger，可以接收一个字符串参数，自定义 fileInfo，对应 [KoaLogger.customFileInfo](http://git.staff.sina.com.cn/jingyu16/koa-logger#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97fileinfo)
+- @logger，注入 logger，可以接收一个字符串参数，自定义 fileInfo，对应 [KoaLogger.customFileInfo](https://github.com/daruk-framework/daruk-logger#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97fileinfo)
 
 示例：
 

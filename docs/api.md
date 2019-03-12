@@ -1,4 +1,4 @@
-## Daruk API
+# API
 
 #### *new Daruk(name: string, options: darukOptions)*
 
