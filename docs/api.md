@@ -220,7 +220,7 @@ daruk.logger.debug() // debug日志
 ##### Example:
 ```javascript
 // daruk.exitHook只是对daruk-exit-hook实例的引用
-// daruk-exit-hook文档：https://gitlab.weibo.cn/daruk/daruk-exit-hook
+// daruk-exit-hook文档：https://github.com/daruk-framework/daruk-exit-hook
 daruk.exitHook.addHook((err, cb) => {
   if (err) {
     daruk.logger.error(err.message)
