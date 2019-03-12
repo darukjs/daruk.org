@@ -10,15 +10,24 @@ module.exports = {
     docsDir: 'docs',
     sidebar: [
       '/',
-      // {
-      //   title: '简介',
-      //   children: [
-      //     'doctor/preface'
-      //   ]
-      // }
+      {
+        title: '功能',
+        children: [
+          'features/middleware',
+          'features/decorator',
+        ]
+      },
+      {
+        title: '性能',
+        children: [
+          'performance/performance',
+          'performance/stress_testing',
+        ]
+      }
     ]
   },
   head: [
     ['link', { rel: 'shortcut icon', href: '/logo.png' }]
-  ]
+  ],
+  plugins: ['@vuepress/active-header-links']
 }

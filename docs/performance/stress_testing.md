@@ -1,0 +1,46 @@
+### Daruk 压力测试报告
+
+其实我们只是在 Koa 的基础上添加了各项功能，但运行时仍旧是 Koa，因此 Daruk 的运行时性能和 Koa 基本持平，从下面的压测数据也可以看到。
+
+测试项目：http://git.staff.sina.com.cn/advise/halo_sina_cn_nodejs_ad
+
+测试一：并发 500，测试 5 分钟
+
+结果：
+
+| 数据 | daruk 版本 | 纯 koa 版本 |
+|-----|-----|-----|
+| 内存稳定值 | 130M 左右 | 120M左右 |  
+| cpu 稳定值 | 115% 左右 | 115% 左右 | 
+| 请求成功数 | 1202K |  1324K |   
+| 请求失败数 | 20 | 15 |  
+
+
+测试二：并发 500，压测 1 分钟
+
+注：下面的数据皆为压测过程中的均值
+
+结果：
+
+| 数据 | daruk 版本 | 纯 koa 版本 |
+|-----|-----|-----|
+| eventLoop | 最大值 63ms，均值较低 | 最大值 66ms，均值较低  |  
+| 进程物理内存占用 | 180M | 150M |  
+| v8 申请的堆内存 | 90M | 65M |  
+| v8 实际使用堆内存 | 50M | 25M |  
+| 活跃 handler 数 | 500 | 500 |  
+
+
+测试三：上线到 docker
+
+结果：
+
+内存占用和cpu均无明显变化
+
+内存：
+
+![](https://gitlab.weibo.cn/daruk/daruk/uploads/8d653448dc5346735df973f5f67bc80d/image.png)
+
+cpu：
+
+![](https://gitlab.weibo.cn/daruk/daruk/uploads/e90555655edac40e69e9fde2802b4782/image.png)
