@@ -6,17 +6,17 @@
 
 相关文档：
 
-[Daruk 装饰器](./decorator.md)
-[Daruk API 文档](./api.md)
-[Daruk 生命周期](./lifecycle.md)
-[Daruk Middleware 文档](./middleware.md)
-[Daruk 性能监控文档](./performance.md)
-[Daruk 压测报告](./stress_testing.md)
+[Daruk 装饰器](./features/decorator.md)  
+[Daruk API 文档](./api.md)  
+[Daruk 生命周期](./lifecycle.md)  
+[Daruk Middleware 文档](./features/middleware.md)  
+[Daruk 性能监控文档](./performance/performance.md)  
+[Daruk 压测报告](./performance/stress_testing.md)  
 
 ### 快速使用
 
 使用 `Daruk` 官方脚手架一键生成项目
-
+```bash
 # 全局安装daurk脚手架
 cnpm i -g daruk-cli
 

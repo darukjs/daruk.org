@@ -23,7 +23,9 @@ module.exports = {
           'performance/performance',
           'performance/stress_testing',
         ]
-      }
+      },
+      './api',
+      './lifecycle'
     ]
   },
   head: [
