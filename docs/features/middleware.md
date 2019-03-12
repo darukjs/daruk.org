@@ -121,12 +121,12 @@ Daruk 模板工程集成了很多 KOA 中的优秀开源中间件，同时也开
 
 
 
-#### #@sina/koa-logger
+#### #daruk-logger
 
 针对每次请求都会自动输出日志   
 日志输出格式  
 ```javascript
-{"level":"access","logType":"myapp","fileinfo":"/src/index.ts:283:25","remote_addr":"::1","method":"GET","url":"/monitor/profiler?period=1000","http_version":"HTTP/1.1","status":200,"referrer":"","request_time":1538020259732,"perf":1016,"user_agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.9 Safari/537.36","requestId":"923126fb-3f5c-43d5-8b53-f587d92b8b61","msg":"{utils2ctx:0.294646,service2ctx:0.163679,@sina/koa-logger:0.748516,koa-handle-error:0.123145,koa-x-request-id:2.102746,asyncStore:0.465898,koa-favicon:0.279888,koa-static:5.66784,koa-bodyparser:0.369535,monitor:1006.011888,router:/monitor/profiler?period=1000:0.319268,allowedMethods:0.29296,sum:1016.840009}","os_hostname":"hahahh.local","timestamp":1538020260774}
+{"level":"access","logType":"myapp","fileinfo":"/src/index.ts:283:25","remote_addr":"::1","method":"GET","url":"/monitor/profiler?period=1000","http_version":"HTTP/1.1","status":200,"referrer":"","request_time":1538020259732,"perf":1016,"user_agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.9 Safari/537.36","requestId":"923126fb-3f5c-43d5-8b53-f587d92b8b61","msg":"{utils2ctx:0.294646,service2ctx:0.163679,daruk-logger:0.748516,koa-handle-error:0.123145,koa-x-request-id:2.102746,asyncStore:0.465898,koa-favicon:0.279888,koa-static:5.66784,koa-bodyparser:0.369535,monitor:1006.011888,router:/monitor/profiler?period=1000:0.319268,allowedMethods:0.29296,sum:1016.840009}","os_hostname":"hahahh.local","timestamp":1538020260774}
 ```
 
 #### #asyncStore

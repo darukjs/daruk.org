@@ -7,7 +7,7 @@ Daruk会自动记录每个中间件的耗时，以及每个请求的中间件访
 你可以在access日志中将看到如下信息
 
 ```javascript
-{"requestId":"4876bd97-d098-4380-abcf-6a72f42da059","msg":"{\"@sina/koa-logger\":1.196143,\"koa-handle-error\":0.236985,\"koa-x-request-id\":2.087368,\"asyncStore\":0.482164,\"koa-favicon\":0.198605,\"koa-bodyparser\":2.517215,\"koa-test-mid\":2.361615,\"router:/hello\":3.806353,\"sum\":12.886448}"}
+{"requestId":"4876bd97-d098-4380-abcf-6a72f42da059","msg":"{\"daruk-logger\":1.196143,\"koa-handle-error\":0.236985,\"koa-x-request-id\":2.087368,\"asyncStore\":0.482164,\"koa-favicon\":0.198605,\"koa-bodyparser\":2.517215,\"koa-test-mid\":2.361615,\"router:/hello\":3.806353,\"sum\":12.886448}"}
 ```
 
 requestId 为这次请求的id，msg 信息为 经过的中间件及耗时
