@@ -2,7 +2,7 @@
 
 其实我们只是在 Koa 的基础上添加了各项功能，但运行时仍旧是 Koa，因此 Daruk 的运行时性能和 Koa 基本持平，从下面的压测数据也可以看到。
 
-测试项目：http://git.staff.sina.com.cn/advise/halo_sina_cn_nodejs_ad
+测试项目：某内部项目
 
 测试一：并发 500，测试 5 分钟
 
@@ -39,8 +39,8 @@
 
 内存：
 
-![](https://gitlab.weibo.cn/daruk/daruk/uploads/8d653448dc5346735df973f5f67bc80d/image.png)
+![](https://user-images.githubusercontent.com/17681925/54181325-26bca500-44d9-11e9-932b-b50f16307252.jpg)
 
 cpu：
 
-![](https://gitlab.weibo.cn/daruk/daruk/uploads/e90555655edac40e69e9fde2802b4782/image.png)
+![](https://user-images.githubusercontent.com/17681925/54181318-22908780-44d9-11e9-8fd7-fdbd58ef26f2.png)
