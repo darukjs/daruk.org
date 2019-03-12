@@ -4,7 +4,7 @@
 
 - @get
 - @post
-- @del，由于 delete 是 js 的关键字，因此用 del 指代 delete
+- @del，由于 delete 是 js 的关键字，因此用 del 代替 delete
 - @put
 - @patch
 - @options
