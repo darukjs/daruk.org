@@ -13,7 +13,7 @@
 [Daruk 性能监控文档](./performance/performance.md)  
 [Daruk 压测报告](./performance/stress_testing.md)  
 
-### 快速使用
+## 快速使用
 
 使用 `Daruk` 官方脚手架一键生成项目
 ```bash
@@ -29,7 +29,7 @@ cd daruk-example
 npm run dev
 ```
 
-### 文件目录结构
+## 文件目录结构
 
 Daruk使用约定的目录结构来将应用划分为各个部分：  
 
@@ -129,7 +129,7 @@ export default function () {
 
 ```
 
-### config 目录
+## config  
 
 `config` 目录用于定义项目的配置，config 目录中的 index.ts 需要导出一个函数，函数的参数是 daruk 实例，函数的返回值就是项目的配置，然后就可以在各个地方通过 `daruk.config`、`ctx.config` 访问了。
 
@@ -142,7 +142,7 @@ export default function (daruk) {
 }
 ```
 
-### controllers 目录
+## controllers 
 
 很多情况下，路由的存在是为了将请求对应到controller层处理我们采用 controller 定义即路由定义的约定。daruk 会递归读取 controllers 目录下的文件，以文件名作为路由 path，特别的，`index.ts` 代表的 path 是 `/`，然后再配合装饰器来定义路由的 http method。所有的 controller 文件都需要导出 Daruk.BaseController 的子类，在该类中可以通过 this.app 访问 daurk 实例，通过 this.ctx 访问 context。
 
@@ -192,7 +192,7 @@ export default class Contact extends BaseController {
 }
 ```
 
-### middlewares 目录
+## middlewares 
 
 daruk 会以 middlewares 目录下的第一级文件夹名字或者文件名作为 middleware 的名字（middleware的名字用于在 middlewareOrder 中定义中间件执行顺序）。比如通过下面的目录结构，会得到 middleware1、middleware2 两个中间件。注意，文件夹里，需要存在 index.ts 文件。
 
@@ -218,7 +218,7 @@ export default function (daruk: Daruk) {
 }
 ```
 
-#### 中间件的使用
+### 中间件的使用
 
 在注册中间件后，我们需要用 `middlewareOrder` 声明中间件的调用顺序   
 中间件注册后不一定会被使用，只有在 `middlewareOrder` 中声明的中间件才会被调用
@@ -237,7 +237,7 @@ module.exports = function () {
 }
 ```
 
-### services 目录
+## services 
 
 简单来说，Service 就是在复杂业务场景下用于做业务逻辑封装的一个抽象层，提供这个抽象有以下几个好处：
 
@@ -274,7 +274,7 @@ export default class UserInfo extends BaseService {
 }
 ```
 
-#### service 的使用
+### service 的使用
 
 service 会以遍历到的文件夹或文件名作为 key 自动挂载到 ctx.service 上。
 
@@ -308,7 +308,7 @@ export default class User extends BaseController {
 }
 ```
 
-### glues 目录
+## glues 
 
 不管 middleware、controller 或者是 service，都是与用户的访问链路相关的，但我们希望做一些与链路无关的操作，比如连接数据库、进程退出报警等操作。这些操作可以选择放到 glues 目录。
 
@@ -333,7 +333,7 @@ export default function (daruk: Daruk) {
 }
 ```
 
-### utils 目录
+## utils
 
 utils 目录用于定义一些工具方法，daurk 会挂载 utils 到 daurk.util 和 ctx.util。daurk 不限制 utils 的目录结构，只需要在 index.ts 导出 utils 的内容就行了。
 
@@ -346,7 +346,7 @@ export default function (daruk: Daruk) {
 }
 ```
 
-### timers 目录（定时任务）
+## timers（定时任务）
 
 在实际应用中，我们有很多时候需要依赖定时任务来解决问题，例如：
 
