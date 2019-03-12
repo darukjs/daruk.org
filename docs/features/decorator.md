@@ -24,7 +24,7 @@ Daruk 会自动将约定目录中的内容挂载到 Daruk 实例或者 context�
 
 ```typescript
 // src/glues/mysql/connect.ts
-import { Daruk, config, util, glue, logger } from '@sina/daruk'
+import { Daruk, config, util, glue, logger } from 'daruk'
 
 export default class MySqlConnector {
   // 注入项目配置中的 mysql 配置
@@ -52,7 +52,7 @@ export default class MySqlConnector {
 
 ```typescript
 // src/controllers/user.ts
-import { BaseController, post } from '@sina/daruk'
+import { BaseController, post } from 'daruk'
 
 export default class User extends BaseController {
   @middleware('login-validator')
