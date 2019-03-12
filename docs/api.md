@@ -1,6 +1,8 @@
 # API
 
-#### *new Daruk(name: string, options: darukOptions)*
+## Daruk
+
+*new Daruk(name: string, options: darukOptions)*
 
 ##### Parameters: 
 
@@ -98,7 +100,7 @@ const ctx = darukInstance.mockContext()
 ctx.service.userInfo.getUserList()
 ```
 
-### register 类 api
+## register
 
 daruk 会按照约定的目录加载 middleware、controller、service 等，不过 daruk 也提供了编程式接口，允许用户手动注册这些内容。接口都采用同一形式的参数，以注册 middleware为例：
 
@@ -197,7 +199,7 @@ export default function (daruk) {
 >
 > }
 
-#### *#logger*
+## logger
 ##### Desc: 日志输出  
 ##### Example:
 ```javascript
@@ -213,7 +215,7 @@ daruk.logger.debug() // debug日志
 {"level":"warn","logType":"myapp","fileinfo":"/src/index.ts:283:25","msg":"message","os_hostname":"hahahh.local","timestamp":1538020260774}
 ```
 
-#### *#exitHook*
+## exitHook
 ##### Desc: 进程退出的回调
 ##### Example:
 ```javascript
