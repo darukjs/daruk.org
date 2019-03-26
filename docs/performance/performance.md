@@ -1,26 +1,54 @@
 ### 性能
 
-1、调用链性能追踪
+#### 调用链性能追踪
 
-Daruk会自动记录每个中间件的耗时，以及每个请求的中间件访问链路
+Daruk 会自动记录每个中间件的耗时，以及每个请求的中间件访问链路
 
-你可以在access日志中将看到如下信息
+你可以在 access 日志中将看到如下信息
 
 ```javascript
 {"requestId":"4876bd97-d098-4380-abcf-6a72f42da059","msg":"{\"daruk-logger\":1.196143,\"koa-handle-error\":0.236985,\"koa-x-request-id\":2.087368,\"asyncStore\":0.482164,\"koa-favicon\":0.198605,\"koa-bodyparser\":2.517215,\"koa-test-mid\":2.361615,\"router:/hello\":3.806353,\"sum\":12.886448}"}
 ```
 
-requestId 为这次请求的id，msg 信息为 经过的中间件及耗时
+requestId 为这次请求的id，msg 信息为经过的中间件及耗时
 
 通过记录耗时与方法追踪，我们可以直观的知道慢请求耗时在哪个中间件中
 
-2、CPU profiler监控
+#### CPU profiler监控
 
-Daruk内置了性能查询路由
+Daruk 支持通过 v8-profiler 对 Node.js 进程进行分析。这个功能默认是关闭的，需要在初始化 Daruk 时开启：
 
-`GET /monitor/profiler` ：统计当前机器所有的cpu的性能情况以及内存的用量 
+```typescript
+import { Daruk } from 'daruk'
 
-​	参数 period： 可以指定需要多少秒内的机器cpu性能 默认 2000ms
+// daruk 没有直接依赖 v8-profile-node8、v8-analytics
+// 如果开启 v8-profiler， 需要手动安装这两个包
+// 因为 v8-profile-node8 是需要编译安装的，线下环境和非线上环境不一样
+// 所以通常的做法是在线上的机器中全局安装这两个包，然后程序中配置这两个包的绝对路径
+new Daruk('myapp', {
+  monitor: {
+    // 是否开启 v8-profiler
+    enable: true,
+    // v8-analytics 的绝对路径
+    v8AnalyticsPath: '',
+    // v8-profile-node8 的绝对路径
+    v8ProfilerPath: '',
+    // 访问 profiler 路由时的验证信息
+    auth: {
+      name: '',
+      password: ''
+    }
+  }
+})
+```
+
+完成上述的配置后，就可以访问如下路由，获取进程分析信息了：
+
+1. `GET /monitor/profiler?period=2000`
+
+统计当前机器所有的cpu的性能情况以及内存的用量 
+
+参数 period： 可以指定需要多少秒内的机器cpu性能 默认 2000ms
 
 结果：
 
@@ -50,9 +78,11 @@ Daruk内置了性能查询路由
 
 
 
-`GET /monitor/profiler/function ` : 统计某个时间段内的function执行耗时
+2. `GET /monitor/profiler/function?period=2000`
 
-​	参数 period： 可以指定需要多少秒内的方法执行耗时 默认 2000ms	
+统计某个时间段内的function执行耗时
+
+​参数 period： 可以指定需要多少秒内的方法执行耗时 默认 2000ms	
 
 结果(仅截取部分): 格式为 执行时间 - 方法名 - 位置- 行号
 
@@ -66,13 +96,13 @@ Daruk内置了性能查询路由
 [33m│   [0m                
 ```
 
+3. `GET /monitor/profiler/mem `
 
+获取内存快照，下载当前 Node.js 进程的内存快照，然后通过 chrome 的 Profiler 进行分析
 
-`GET /monitor/profiler/mem `: 获取内存快照， 将下载当前具体的内存快照，可通过chrome 的Profiler进行分析
+4. `GET /monitor/profiler/mem-analytics`
 
-当然， 如果你不想下载下来手动分析，你也可以通过调用以下路由获取详情:
-
-`GET /monitor/profiler/mem-analytics`：分析内存
+如果你不想通过上述路由下载快照手动分析，你可以通过该路由直接获取分析结果
 
 结果:
 

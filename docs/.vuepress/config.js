@@ -11,22 +11,16 @@ module.exports = {
     sidebar: [
       '/',
       '/quick-start',
-      {
-        title: '功能',
-        children: [
-          'features/middleware',
-          'features/decorator',
-        ]
-      },
+      './decorator',
+      './api',
+      './lifecycle',
       {
         title: '性能',
         children: [
           'performance/performance',
           'performance/stress_testing',
         ]
-      },
-      './api',
-      './lifecycle'
+      }
     ]
   },
   head: [

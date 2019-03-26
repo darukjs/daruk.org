@@ -1,6 +1,6 @@
 # 装饰器
 
-#### http method 装饰器
+## http method 装饰器
 
 - @get
 - @post
@@ -11,7 +11,32 @@
 - @head
 - @all
 
-#### 框架装饰器
+Daruk 通过装饰定义 http method，也可以通过装饰器参数进一步定义路由的 path。示例：
+
+```typescript
+import { BaseController, get, post, del, put } from 'daruk'
+
+export default class ContactList extends BaseController {
+  @get('/')
+  public async getHandle () {
+
+  }
+  @post('/somePath')
+  public async postHandle () {
+    
+  }
+  @del('/somePath')
+  public async delHandle () {
+    
+  }
+  @put('/')
+  public async putHandle () {
+    
+  }
+}
+```
+
+## 框架装饰器
 
 Daruk 会自动将约定目录中的内容挂载到 Daruk 实例或者 context，但在不方便拿到 Daruk 实例后者 context 的地方要怎么获取这些内容呢。这时，框架级的装饰器就派上用场了。支持的框架装饰器有：
 
@@ -42,7 +67,7 @@ export default class MySqlConnector {
 }
 ```
 
-#### 中间件装饰器
+## 中间件装饰器
 
 有时候我们希望对单个路由应用一个中间件，这时可以使用中间件装饰器：
 
