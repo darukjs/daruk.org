@@ -2,6 +2,8 @@
 
 ## http method 装饰器
 
+Daruk 通过装饰器定义 http method，也可以通过装饰器参数进一步定义路由的 path。所有的 http method 装饰器如下：
+
 - @get
 - @post
 - @del，由于 delete 是 js 的关键字，因此用 del 代替 delete
@@ -11,7 +13,7 @@
 - @head
 - @all
 
-Daruk 通过装饰定义 http method，也可以通过装饰器参数进一步定义路由的 path。示例：
+示例：
 
 ```typescript
 import { BaseController, get, post, del, put } from 'daruk'
