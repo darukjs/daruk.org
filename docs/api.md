@@ -13,7 +13,6 @@
 | 选项 | 默认值 | 描述 | 其他 |
 |-----|-----|-----|-----|
 | options.debug | false | 是否是debug模式 | - |  
-| options.alertAccounts | [] | 接收邮件报警的邮箱 | - |  
 | options.loggerOptions | 同daruk-logger | logger配置 | https://github.com/daruk-framework/daruk-logger |  
 | options.customLogger | null | 自定义 logger | 需要实现 @daruk/daruk-logger 类似的接口 |  
 | options.gracefulShutdown.enable | false | 是否开启优雅关机 | docker 已经根据 nginx 是否存在连接做了优雅关机，默认关闭 |  
