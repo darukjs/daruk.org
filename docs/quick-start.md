@@ -143,7 +143,7 @@ export default function (daruk) {
 
 ## controllers 
 
-很多情况下，路由的存在是为了将请求对应到 controller 层处理我们采用 controller 定义即路由定义的约定。daruk 会递归读取 controllers 目录下的文件，以文件名作为路由 path，特别的，`index.ts` 代表的 path 是 `/`，然后再配合装饰器来定义路由的 http method。所有的 controller 文件都需要导出 Daruk.BaseController 的子类，在该类中可以通过 this.app 访问 daurk 实例，通过 this.ctx 访问 context。
+很多情况下，路由的存在是为了将请求映射到 controller 层处理，因此我们采用了 controller 定义即路由定义的约定。daruk 会递归读取 controllers 目录下的文件，以文件名作为路由 path，特别的，`index.ts` 代表的 path 是 `/`，然后再配合装饰器来定义路由的 http method。所有的 controller 文件都需要导出 Daruk.BaseController 的子类，在该类中可以通过 this.app 访问 daurk 实例，通过 this.ctx 访问 context。
 
 比如我们添加一个 `GET /contact/list` 路由：
 

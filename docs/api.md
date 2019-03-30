@@ -12,14 +12,14 @@
 
 | 选项 | 默认值 | 描述 | 其他 |
 |-----|-----|-----|-----|
-| options.debug | false | 是否是debug模式 | - |  
-| options.loggerOptions | 同daruk-logger | logger配置 | https://github.com/daruk-framework/daruk-logger |  
-| options.customLogger | null | 自定义 logger | 需要实现 @daruk/daruk-logger 类似的接口 |  
+| options.debug | false | 是否是 debug 模式 | - |  
+| options.loggerOptions | 同 daruk-logger | logger配置 | https://github.com/daruk-framework/daruk-logger |  
+| options.customLogger | null | 自定义 logger | 需要实现 daruk-logger 类似的接口 |  
 | options.gracefulShutdown.enable | false | 是否开启优雅关机 | docker 已经根据 nginx 是否存在连接做了优雅关机，默认关闭 |  
 | options.gracefulShutdown.timeout | 10*1000 | 关机超时 | - |  
 | options.monitor.enable | false | 是否开启 v8 profiler 监控路由 | - |  
-| options.monitor.v8AnalyticsPath | '' | v8Analytic 安装路径 | - |  
-| options.monitor.v8ProfilerPath | '' | v8Profiler 安装路径 | - |  
+| options.monitor.v8AnalyticsPath | 'v8-analytics' | v8Analytic 安装路径 | - |  
+| options.monitor.v8ProfilerPath | 'v8-profiler-node8' | v8Profiler 安装路径 | - |  
 | options.monitor.auth.name | '' | 访问监控路由的用户名 | - |  
 | options.monitor.auth.password | '' |  访问监控路由的密码 | - |  
 
@@ -101,7 +101,7 @@ ctx.service.userInfo.getUserList()
 
 ## register
 
-daruk 会按照约定的目录加载 middleware、controller、service 等，不过 daruk 也提供了编程式接口，允许用户手动注册这些内容。接口都采用同一形式的参数，以注册 middleware为例：
+daruk 会按照约定的目录加载 middleware、controller、service 等，不过 daruk 也提供了编程式 api 接口，允许用户手动注册这些内容。这些 api 都采用统一形式的参数，以注册 middleware为例：
 
 ```typescript
 // src/middleware/index.ts
@@ -202,10 +202,10 @@ export default function (daruk) {
 ##### Desc: 日志输出  
 ##### Example:
 ```javascript
-// daruk.logger只是对daruk-logger实例的引用
-// daruk-logger文档：https://github.com/daruk-framework/daruk-logger
+// daruk.logger 只是对 daruk-logger 实例的引用
+// daruk-logger 文档：https://github.com/daruk-framework/daruk-logger
 daruk.logger.warn('warn message') // 警告日志
-daruk.logger.error({message: 'error message'}) // 错误日志，Object会被stringify
+daruk.logger.error({message: 'error message'}) // 错误日志，Object 会被 stringify
 daruk.logger.info() // 普通日志
 daruk.logger.debug() // debug日志
 ```
@@ -218,8 +218,8 @@ daruk.logger.debug() // debug日志
 ##### Desc: 进程退出的回调
 ##### Example:
 ```javascript
-// daruk.exitHook只是对daruk-exit-hook实例的引用
-// daruk-exit-hook文档：https://github.com/daruk-framework/daruk-exit-hook
+// daruk.exitHook 只是对 daruk-exit-hook 实例的引用
+// daruk-exit-hook 文档：https://github.com/daruk-framework/daruk-exit-hook
 daruk.exitHook.addHook((err, cb) => {
   if (err) {
     daruk.logger.error(err.message)

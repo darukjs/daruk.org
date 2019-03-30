@@ -29,9 +29,9 @@ new Daruk('myapp', {
   monitor: {
     // 是否开启 v8-profiler
     enable: true,
-    // v8-analytics 的绝对路径
+    // v8-analytics 安装路径
     v8AnalyticsPath: '',
-    // v8-profile-node8 的绝对路径
+    // v8-profile-node8 安装路径
     v8ProfilerPath: '',
     // 访问 profiler 路由时的验证信息
     auth: {
