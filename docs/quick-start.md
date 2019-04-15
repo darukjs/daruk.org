@@ -6,10 +6,9 @@
 
 相关文档：
 
-[Daruk 装饰器](./features/decorator.md)  
+[Daruk 装饰器](./decorator.md)  
 [Daruk API 文档](./api.md)  
 [Daruk 生命周期](./lifecycle.md)  
-[Daruk Middleware 文档](./features/middleware.md)  
 [Daruk 性能监控文档](./performance/performance.md)  
 [Daruk 压测报告](./performance/stress_testing.md)  
 
