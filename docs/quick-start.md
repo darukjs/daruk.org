@@ -7,6 +7,7 @@ Daruk 只是在 Koa 上做了一定的约定并添加了部分方便的功能，
 ## 快速使用
 
 使用 `Daruk` 官方脚手架一键生成项目
+
 ```bash
 # 全局安装daurk脚手架
 cnpm i -g daruk-cli
@@ -22,7 +23,7 @@ npm run dev
 
 ## 文件目录结构
 
-Daruk使用约定的目录结构来将应用划分为各个部分：  
+Daruk 使用约定的目录结构来将应用划分为各个部分：
 
 ```bash
 ./daruk-example/src
@@ -53,19 +54,19 @@ Daruk使用约定的目录结构来将应用划分为各个部分：
 │   └── daruk.png
 ```
 
-`app.ts`是应用的入口文件，通常代码如下：
+`app.ts`是  应用  的入口文件，通常代码如下：
 
 ```typescript
-import daruk from './daruk.init.ts'
-daruk.run(3000)
+import daruk from "./daruk.init.ts";
+daruk.run(3000);
 ```
 
-为了在非约定目录能够方便地拿到 daruk 实例，我们通常选择在`daruk.init.ts`中初始化 daruk，然后在需要的地方能够直接```import```：
+为了在非约定目录能够方便地拿到 daruk 实例，我们通常选择在`daruk.init.ts`中初始化 daruk，然后在需要的地方能够直接`import`：
 
 ```typescript
-import { Daruk } from 'daruk'
-const options = {}
-export default new Daruk('myapp', options)
+import { Daruk } from "daruk";
+const options = {};
+export default new Daruk("myapp", options);
 ```
 
 daruk 继承自 koa，比如有些中间件需要传递 koa 实例作为参数，我们直接传递 daruk 实例即可。
@@ -119,7 +120,7 @@ export default function () {
 
 ```
 
-## project config  
+## project config
 
 `config` 目录用于定义项目的配置，config 目录中的 index.ts 需要导出一个函数，函数的参数是 daruk 实例，函数的返回值就是项目的配置，然后就可以在各个地方通过 `daruk.config`、`ctx.config` 访问了。
 
@@ -127,12 +128,12 @@ export default function () {
 // src/config/index.ts
 
 // 其他内容省略...
-export default function (daruk) {
-  return config
+export default function(daruk) {
+  return config;
 }
 ```
 
-## controllers 
+## controllers
 
 很多情况下，路由的存在是为了将请求映射到 controller 层处理，因此我们采用了 controller 定义即路由定义的约定。daruk 会递归读取 controllers 目录下的文件，以文件名作为路由 path，特别的，`index.ts` 代表的 path 是 `/`，然后再配合装饰器来定义路由的 http method。所有的 controller 文件都需要导出 Daruk.BaseController 的子类，在该类中可以通过 this.app 访问 daurk 实例，通过 this.ctx 访问 context。
 
@@ -140,13 +141,13 @@ export default function (daruk) {
 
 ```typescript
 // src/controllers/contact/list.ts
-import { BaseController, get, Context } from 'daruk'
+import { BaseController, get, Context } from "daruk";
 
 export default class ContactList extends BaseController {
-  @get('/')
-  public async getContactList (ctx: Context, next: Function) {
-    ctx.body = 'contact list'
-    return next()
+  @get("/")
+  public async getContactList(ctx: Context, next: Function) {
+    ctx.body = "contact list";
+    return next();
   }
 }
 ```
@@ -158,13 +159,13 @@ export default class ContactList extends BaseController {
 ```typescript
 // 注意，删除了 src/controllers/contact 目录，直接在 contact.ts 中定义路由
 // scr/controllers/contact.ts
-import { BaseController, get, Context } from 'daruk'
+import { BaseController, get, Context } from "daruk";
 
 export default class Contact extends BaseController {
-  @get('/list')
-  public async getContactList (ctx: Context, next: Function) {
-    ctx.body = 'contact list'
-    return next()
+  @get("/list")
+  public async getContactList(ctx: Context, next: Function) {
+    ctx.body = "contact list";
+    return next();
   }
 }
 ```
@@ -173,18 +174,18 @@ export default class Contact extends BaseController {
 
 ```typescript
 // scr/controllers/contact.ts
-import { BaseController, get, Context } from 'daruk'
+import { BaseController, get, Context } from "daruk";
 
 export default class Contact extends BaseController {
-  public constructor (ctx: Context) {
-    super(ctx)
+  public constructor(ctx: Context) {
+    super(ctx);
   }
 }
 ```
 
-## middlewares 
+## middlewares
 
-daruk 会以 middlewares 目录下的第一级文件夹名字或者文件名作为 middleware 的名字（middleware的名字用于在 middlewareOrder 中定义中间件执行顺序）。比如通过下面的目录结构，会得到 middleware1、middleware2 两个中间件。注意，文件夹里，需要存在 index.ts 文件。
+daruk 会以 middlewares 目录下的第一级文件夹名字或者文件名作为 middleware 的名字（middleware 的名字用于在 middlewareOrder 中定义中间件执行顺序）。比如通过下面的目录结构，会得到 middleware1、middleware2 两个中间件。注意，文件夹里，需要存在 index.ts 文件。
 
 ```bash
 middlewares
@@ -198,36 +199,33 @@ middlewares
 
 ```typescript
 // middlewares/middleware1.ts
-import { Daruk, Context } from 'daruk'
+import { Daruk, Context } from "daruk";
 
-export default function (daruk: Daruk) {
-  return async function (ctx: Context, next: Function) {
+export default function(daruk: Daruk) {
+  return async function(ctx: Context, next: Function) {
     // do something
-    return next()
-  }
+    return next();
+  };
 }
 ```
 
 ### 中间件的使用
 
-在注册中间件后，我们需要用 `middlewareOrder` 声明中间件的调用顺序   
+在注册中间件后，我们需要用 `middlewareOrder` 声明中间件的调用顺序  
 中间件注册后不一定会被使用，只有在 `middlewareOrder` 中声明的中间件才会被调用
 
 ```typescript
 // src/daruk.config.ts
-module.exports = function () {
-  const globalConfig:any = {}
+module.exports = function() {
+  const globalConfig: any = {};
 
-  globalConfig.middlewareOrder = [
-    'middleware1',
-    'middleware2',
-  ]
+  globalConfig.middlewareOrder = ["middleware1", "middleware2"];
 
-  return globalConfig
-}
+  return globalConfig;
+};
 ```
 
-## services 
+## services
 
 简单来说，Service 就是在复杂业务场景下用于做业务逻辑封装的一个抽象层，提供这个抽象有以下几个好处：
 
@@ -238,7 +236,7 @@ module.exports = function () {
 使用场景：
 
 - 复杂数据的处理，比如要展现的信息需要从数据库获取，还要经过一定的规则计算，才能返回用户显示。或者计算完成后，更新到数据库。
-- 第三方服务的调用，比如 处理ioredis等。
+- 第三方服务的调用，比如 处理 ioredis 等。
 
 与 middleware 类似，daruk 也会以 services 目录下的第一级文件夹名字或者文件名作为 service 的名字。比如通过下面的目录结构会得到 service1、service2 两个 service。
 
@@ -254,12 +252,12 @@ service `文件`或者`文件夹`中的 index.ts 需要导出 Daruk.BaseService 
 
 ```ts
 // src/services/userInfo.ts
-import { BaseService } from 'daruk'
+import { BaseService } from "daruk";
 
 export default class UserInfo extends BaseService {
-  public getUserList () {
-    const { mysql } = this.ctx.glue
-    return mysql.queryUserList()
+  public getUserList() {
+    const { mysql } = this.ctx.glue;
+    return mysql.queryUserList();
   }
 }
 ```
@@ -274,12 +272,12 @@ service 会以遍历到的文件夹或文件名作为 key 自动挂载到 ctx.se
 
 ```typescript
 // src/controllers/user.ts
-import { BaseController, get } from 'daruk'
+import { BaseController, get } from "daruk";
 
 export default class User extends BaseController {
-  @get('/')
-  public async index () {
-    const { userInfo } = this.ctx.service
+  @get("/")
+  public async index() {
+    const { userInfo } = this.ctx.service;
     // do something
   }
 }
@@ -289,16 +287,16 @@ export default class User extends BaseController {
 
 ```typescript
 // src/controllers/user.ts
-import { BaseController,  Context, get } from 'daruk'
+import { BaseController, Context, get } from "daruk";
 
 export default class User extends BaseController {
-  public constructor (ctx: Context) {
-    super(ctx)
+  public constructor(ctx: Context) {
+    super(ctx);
   }
 }
 ```
 
-## glues 
+## glues
 
 不管 middleware、controller 或者是 service，都是与用户的访问链路相关的，但我们希望做一些与链路无关的操作，比如连接数据库、进程退出报警等操作。这些操作可以选择放到 glues 目录。
 
@@ -315,11 +313,11 @@ glues 目录下的文件或者文件夹中的 index.ts 需要导出一个函数�
 
 ```ts
 // src/glues/mysql/index.ts
-import { Daruk } from 'daruk'
-import mysql from './connect'
+import { Daruk } from "daruk";
+import mysql from "./connect";
 
-export default function (daruk: Daruk) {
-  return mysql
+export default function(daruk: Daruk) {
+  return mysql;
 }
 ```
 
@@ -329,10 +327,10 @@ utils 目录用于定义一些工具方法，daurk 会挂载 utils 到 daurk.uti
 
 ```ts
 // src/utils/index.ts
-import { Daruk } from 'daruk'
+import { Daruk } from "daruk";
 
-export default function (daruk: Daruk) {
-  return utils
+export default function(daruk: Daruk) {
+  return utils;
 }
 ```
 
@@ -346,17 +344,17 @@ export default function (daruk: Daruk) {
 类似的，daurk 会以 timers 下文件夹名字或者文件的名字作为 timer 的名字。文件或者文件夹中的 index.ts 需要导出一个函数，函数的参数是 daruk 实例，函数需要返回 timer 的配置：
 
 ```ts
-export default function () {
+export default function() {
   return {
-      cronTime: '* * * * * *', //一秒一次
-      // 定时器触发的回调
-      onTick: function (this: any) {
-        // 可以手动停止定时器
-        this.stop();
-      },
-      // 定时器完成的回调
-      onComplete: function () {}
-  }
+    cronTime: "* * * * * *", //一秒一次
+    // 定时器触发的回调
+    onTick: function(this: any) {
+      // 可以手动停止定时器
+      this.stop();
+    },
+    // 定时器完成的回调
+    onComplete: function() {}
+  };
 }
 ```
 
@@ -366,4 +364,4 @@ export default function () {
 [Daruk API 文档](./api.md)  
 [Daruk 生命周期](./lifecycle.md)  
 [Daruk 性能监控文档](./performance/performance.md)  
-[Daruk 压测报告](./performance/stress_testing.md)  
+[Daruk 压测报告](./performance/stress_testing.md)

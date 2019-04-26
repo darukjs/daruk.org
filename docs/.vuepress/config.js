@@ -10,13 +10,49 @@ module.exports = {
     docsDir: "docs",
     sidebar: [
       "/",
-      "./quick-start",
-      "./decorator",
-      "./api",
-      "./lifecycle",
       {
-        title: "性能",
-        children: ["performance/performance", "performance/stress_testing"]
+        title: "教程",
+        children: [
+          "tutorial/install",
+          "tutorial/about",
+          "tutorial/typescript",
+          "tutorial/different",
+          "tutorial/Scaffolding",
+          "tutorial/specification",
+          "tutorial/lifecycle",
+          "tutorial/DarukConfig",
+          "tutorial/projectConfig",
+          "tutorial/decorator",
+          "tutorial/router",
+          "tutorial/middleware",
+          "tutorial/service",
+          "tutorial/gule",
+          "tutorial/util",
+          "tutorial/timer",
+          "tutorial/culster",
+          "tutorial/template",
+          "tutorial/logger",
+          "tutorial/performance",
+          "tutorial/extension",
+          "tutorial/pm2"
+        ]
+      },
+      {
+        title: "框架原理",
+        children: [
+          "principle/core",
+          "principle/decorator",
+          "principle/routing",
+          "principle/diagram"
+        ]
+      },
+      {
+        title: "API",
+        children: ["API/Daruk", "API/Register", "API/logger", "API/exitHook"]
+      },
+      {
+        title: "更多",
+        children: ["more/compare", "more/team"]
       }
     ]
   },
