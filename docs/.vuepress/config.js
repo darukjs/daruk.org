@@ -7,6 +7,7 @@ module.exports = {
     logoLink: "https://github.com/daruk-framework/daruk",
     repo: "daruk-framework/daruk.org",
     editLinks: true,
+    displayAllHeaders: true,
     docsDir: "docs",
     sidebar: [
       "/",
@@ -17,10 +18,11 @@ module.exports = {
           "tutorial/about",
           "tutorial/typescript",
           "tutorial/different",
-          "tutorial/Scaffolding",
+          "tutorial/scaffolding",
+          "tutorial/quick-start",
           "tutorial/specification",
           "tutorial/lifecycle",
-          "tutorial/DarukConfig",
+          "tutorial/darukconfig",
           "tutorial/projectConfig",
           "tutorial/decorator",
           "tutorial/router",
@@ -30,7 +32,6 @@ module.exports = {
           "tutorial/util",
           "tutorial/timer",
           "tutorial/culster",
-          "tutorial/template",
           "tutorial/logger",
           "tutorial/performance",
           "tutorial/extension",
@@ -47,8 +48,8 @@ module.exports = {
         ]
       },
       {
-        title: "API",
-        children: ["API/Daruk", "API/Register", "API/logger", "API/exitHook"]
+        title: "api",
+        children: ["api/api"]
       },
       {
         title: "更多",
