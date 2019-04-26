@@ -1,10 +1,8 @@
-# 指南
-
-<p align="center"><img width="90%" src="https://user-images.githubusercontent.com/289225/56637111-66140f00-669d-11e9-8ea9-501a37528e01.png" alt="daruk web framework for nodejs"></p>
+# 介绍
 
 <hr>
 
-# 什么是 Daruk?
+## 什么是 Daruk?
 
 [Daruk](https://daruk-framework.github.io/daruk.org) 是一款基于 Koa2，使用 typescript 开发的轻量级 web 框架。使用过 koa2 框架的朋友应该知道，koa2 属于比较原始和基础的 http server 实现，在日常的开发工作中，我们可能需要通过安装很多开源的中间件，自己完成复杂的项目配置，路由管理，以及和业务无关的工作：如日志，监控，性能等基础组件的定制。
 
