@@ -7,7 +7,6 @@ module.exports = {
     logoLink: "https://github.com/daruk-framework/daruk",
     repo: "daruk-framework/daruk.org",
     editLinks: true,
-    displayAllHeaders: true,
     docsDir: "docs",
     sidebar: [
       "/",
