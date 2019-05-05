@@ -24,7 +24,7 @@ $ cnpm install daruk --save
 在项目中直接使用 Daruk 实例运行 web app 即可
 
 ```ts
-// src/index.ts
+// src/app.ts
 import { Daruk } from "daruk";
 let app = new Daruk("myapp", { rootPath: __dirname, debug: true });
 app.run(3000);
