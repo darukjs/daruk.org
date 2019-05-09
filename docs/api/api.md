@@ -28,7 +28,7 @@ Daruk 实例包含下列方法:
 
 ##### Desc: 启动 http服务,该方法是对Koa的app.listen的一次封装，调用方式一致,文档参考：
 
-https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback
+[https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback](https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback)
 
 ```typescript
 let daruk = require("daruk");
@@ -37,7 +37,7 @@ app.listen(3030);
 ```
 
 
-#### _#run(port:number|string, host?:string|Function, cb?:Function)_
+#### _#run(port:number|string, host?:string|Function, cb?:Function)_ (即将废弃,建议使用listen)
 
 ##### Desc: 启动 http 服务
 
