@@ -52,7 +52,7 @@ let app = new Daruk("myapp", {
   debug: true // 开启调试模式
 });
 
-app.run(3000);
+app.listen(3000);
 ```
 
 ```ts

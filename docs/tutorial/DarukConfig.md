@@ -37,7 +37,7 @@
 
 ```typescript
 import daruk from "./daruk.init.ts";
-daruk.run(3000);
+daruk.listen(3000);
 ```
 
 为了在非约定目录能够方便地拿到 daruk 实例，我们通常选择在`daruk.init.ts`中初始化 daruk，然后在需要的地方能够直接`import`：

@@ -24,6 +24,18 @@ _new Daruk(name: string, options: darukOptions)_
 | options.monitor.auth.password    | ''                  | 访问监控路由的密码            | -                                                        |
 
 Daruk 实例包含下列方法:
+#### _#listen(...)_
+
+##### Desc: 启动 http服务,该方法是对Koa的app.listen的一次封装，调用方式一致,文档参考：
+
+https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback
+
+```typescript
+let daruk = require("daruk");
+let app = daruk("myapp");
+app.listen(3030);
+```
+
 
 #### _#run(port:number|string, host?:string|Function, cb?:Function)_
 

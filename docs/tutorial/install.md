@@ -27,7 +27,7 @@ $ cnpm install daruk --save
 // src/index.ts
 import { Daruk } from "daruk";
 let app = new Daruk("myapp", { rootPath: __dirname, debug: true });
-app.run(3000);
+app.listen(3000);
 ```
 
 ```ts
