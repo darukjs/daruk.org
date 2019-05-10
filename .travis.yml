@@ -1,0 +1,23 @@
+env:
+  global:
+    - GH_REF: github.com/daruk-framework/daruk.org.git
+    - secure: "gHVEsVJeqA8vaCCL6/KpFhrgssAcq+eL7HryVYF5gqRSrDEn7H0+VoFvLSDDkDi72NST/QUxC78piiuMUNqYtHJi3SfPbdyxYlkp5OziQ2XeH8e47kOl4tXR1UZ1y/azFHEHspz0MRNjNwk1DIyOfi0wVjmVmhLWDImBbqwtJkD99TqXNuf9VbKE/KaNPEe97DO8VoGnQJRgC6tlR+ywPC7iEMZnHgF2g91eCJdIlrjEqFG7xQVVpqUp2MEV+OFWDq/r5J1Q2PLNiXCf+mlbwEePQcl3vrpGfzTclR/M72VcbiJtxrBkiudI2wlnSY+piKRdtwqicIX8ePDbXTbS5OYyQabirJM7T92fc6s3D/41gDKrvA2aiERk0UCFu9OUCNNxd8rGE3nl50OPz5wu56uaVaUH0LcO/kg+8vxkDXjPz98LU0xMpxBDWTTevLL4qMKEM2VBH8dabNpYEgUr9BGtyC40BmZw5MuR6+lJtiYhovyvOq+9a4kJUYvEEADtSCzTJ8gYHqQ8nAee9JgajMocvxuOHYK/HuhGtbZTKDYdqaSJa1nnVCnviaPXveW/3HcgXQgPH/B6xn2zFQfE/ZdHFD/EhCEYxbHJv8cDVOupXRChDBoESB9ZMdeO3ZnpSVjDI5ahpmqppEzmrfMFGRkTefWKcOmaW3aAVrqfP1s="
+language: node_js
+
+node_js:
+  - 10
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+after_script:
+  - cd docs/.vuepress/dist
+  - git init
+  - git config user.name "doc"
+  - git config user.email "doc"
+  - git add -A
+  - git commit -m "Update docs"
+  - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
