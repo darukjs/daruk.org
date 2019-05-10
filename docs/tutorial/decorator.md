@@ -12,15 +12,19 @@ Daruk 通过装饰器定义 http method，也可以通过装饰器参数进一�
 - @options
 - @head
 - @all
+- @JSON
 
 示例：
 
 ```typescript
-import { BaseController, get, post, del, put } from "daruk";
+import { BaseController, get, post, del, put, JSON } from "daruk";
 
 export default class ContactList extends BaseController {
+  @JSON
   @get("/")
-  public async getHandle() {}
+  public async getHandle() {
+		return { foo : 1};	
+	}
   @post("/somePath")
   public async postHandle() {}
   @del("/somePath")
