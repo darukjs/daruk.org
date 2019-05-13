@@ -27,7 +27,7 @@ new Daruk("myapp");
 
 ## access 事件
 
-当完用户请求我们的服务，我们的服务响应用户后，会触发 `access` 事件：
+当用户的请求被响应完成之后，会触发 `access` 事件：
 
 ```ts
 import { DarukEvents, Context } from "daruk";
