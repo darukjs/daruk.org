@@ -8,6 +8,10 @@
 类似的，daurk 会以 timers 下文件夹名字或者文件的名字作为 timer 的名字。文件或者文件夹中的 index.ts 需要导出一个函数，函数的参数是 daruk 实例，函数需要返回 timer 的配置：
 
 ```ts
+/**
+* 这里使用的linux下的corntab进程
+* 新手请自行百度
+*/
 export default function() {
   return {
     cronTime: "* * * * * *", //一秒一次
