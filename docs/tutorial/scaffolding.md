@@ -31,9 +31,9 @@ $ daruk init --ignore <repository name>
 # 使用自定义的模板
 # 模板 url 地址需要满足规则: https://www.npmjs.com/package/download-git-repo
 # 比如这里我们使用模板工程中的 nodejs-ts-scaffold 分支作为模板初始化项目
-daruk init custom-daruk-app 'daruk-framework/daruk-template.git#nodejs-ts-scaffold'
+daruk init custom-daruk-app 'darukjs/daruk-template.git#nodejs-ts-scaffold'
 ```
 
 上面的代码我们就在本地安装了我们另外一个纯的支持 NODEJS 和 TS 的脚手架模板。
 
-你也可以传入你自己配置和开发的模板地址，只使用我们的脚手架工具即可，模板源码可以[参考这里](https://github.com/daruk-framework/daruk-template)。
+你也可以传入你自己配置和开发的模板地址，只使用我们的脚手架工具即可，模板源码可以[参考这里](https://github.com/darukjs/daruk-template)。

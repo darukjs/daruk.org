@@ -13,7 +13,7 @@ _new Daruk(name: string, options: darukOptions)_
 | 选项                             | 默认值              | 描述                          | 其他                                                     |
 | -------------------------------- | ------------------- | ----------------------------- | -------------------------------------------------------- |
 | options.debug                    | false               | 是否是 debug 模式             | -                                                        |
-| options.loggerOptions            | 同 daruk-logger     | logger 配置                   | https://github.com/daruk-framework/daruk-logger          |
+| options.loggerOptions            | 同 daruk-logger     | logger 配置                   | https://github.com/darukjs/daruk-logger                  |
 | options.customLogger             | null                | 自定义 logger                 | 需要实现 daruk-logger 类似的接口                         |
 | options.gracefulShutdown.enable  | false               | 是否开启优雅关机              | docker 已经根据 nginx 是否存在连接做了优雅关机，默认关闭 |
 | options.gracefulShutdown.timeout | 10\*1000            | 关机超时                      | -                                                        |
@@ -24,9 +24,10 @@ _new Daruk(name: string, options: darukOptions)_
 | options.monitor.auth.password    | ''                  | 访问监控路由的密码            | -                                                        |
 
 Daruk 实例包含下列方法:
+
 #### _#listen(...)_
 
-##### Desc: 启动 http服务,该方法是对Koa的app.listen的一次封装，调用方式一致,文档参考：
+##### Desc: 启动 http 服务,该方法是对 Koa 的 app.listen 的一次封装，调用方式一致,文档参考：
 
 [https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback](https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback)
 
@@ -36,8 +37,7 @@ let app = daruk("myapp");
 app.listen(3030);
 ```
 
-
-#### _#run(port:number|string, host?:string|Function, cb?:Function)_ (即将废弃,建议使用listen)
+#### _#run(port:number|string, host?:string|Function, cb?:Function)_ (即将废弃,建议使用 listen)
 
 ##### Desc: 启动 http 服务
 
@@ -212,7 +212,7 @@ export default function(daruk) {
 
 ```javascript
 // daruk.logger 只是对 daruk-logger 实例的引用
-// daruk-logger 文档：https://github.com/daruk-framework/daruk-logger
+// daruk-logger 文档：https://github.com/darukjs/daruk-logger
 daruk.logger.warn("warn message"); // 警告日志
 daruk.logger.error({ message: "error message" }); // 错误日志，Object 会被 stringify
 daruk.logger.info(); // 普通日志
@@ -240,7 +240,7 @@ daruk.logger.debug(); // debug日志
 
 ```javascript
 // daruk.exitHook 只是对 daruk-exit-hook 实例的引用
-// daruk-exit-hook 文档：https://github.com/daruk-framework/daruk-exit-hook
+// daruk-exit-hook 文档：https://github.com/darukjs/daruk-exit-hook
 daruk.exitHook.addHook((err, cb) => {
   if (err) {
     daruk.logger.error(err.message);

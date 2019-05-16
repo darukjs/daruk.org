@@ -1,6 +1,6 @@
 # daruk.org
 
-[![Build Status](https://travis-ci.org/daruk-framework/daruk.org.svg?branch=master)](https://travis-ci.org/daruk-framework/daruk.org)
+[![Build Status](https://travis-ci.org/darukjs/daruk.org.svg?branch=master)](https://travis-ci.org/darukjs/daruk.org)
 
 daruk.org 文档仓库
 

@@ -4,8 +4,8 @@ module.exports = {
   base: "/daruk.org/",
   themeConfig: {
     logo: "/logo.png",
-    logoLink: "https://github.com/daruk-framework/daruk",
-    repo: "daruk-framework/daruk.org",
+    logoLink: "https://github.com/darukjs/daruk",
+    repo: "darukjs/daruk.org",
     editLinks: true,
     docsDir: "docs",
     sidebar: [
