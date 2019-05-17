@@ -23,7 +23,7 @@ export default class ContactList extends BaseController {
   @JSON()
   @get("/")
   public async getHandle() {
-    return { foo : 1};	
+    return { foo: 1 };
   }
   @post("/somePath")
   public async postHandle() {}
