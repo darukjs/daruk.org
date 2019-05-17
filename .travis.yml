@@ -1,10 +1,6 @@
 env:
   global:
     - GH_REF: github.com/darukjs/daruk.org.git
-    - secure: "nNEHegsjZAv4f8ycLQa7O3hohl8C1jrocED+V5aKYxaduSaPs1JmtsuZ4/Luce6b71BB8fllgSqn/GeUr+LHc1Muf0V3nUqAA82Z7lbjS4BYXC26CQ77MijV8jGs/Xz4cHsC3pmUMBRVnzJ70nRBAHeF417HAmeblmsztWI46wbekvlryhctfMefY8tIIzyfcMYCCBFqDsQtGNZqr5G
-35cru3lHLA3LqMVTTfAr7Yn7lcC4yn7YHNH/3zxO+K0uYLasR+bJScsW6mNYICYL4M/+ivNxn41o2LFEGmP0SdC3kNFIJ86AYZRv/egsu0HvXPuTYM88xgfxa19orfI+xnKJxEtapr+8edliK1f9os+nNYRdaLCSAT6WKueNsiFc05jGLNrt+K/veuneKrA8vUV2DLHIGG2GB01AswCKUZHEpND8oP
-GAAuJxSa39JYgCGaZ4sb/ZAbDv1wmCA0i4p35zI0PyQpWAK3Zd80poxsFKPe/L0M80YfilTvus4pegekDAE+upofwwZCb4pywFFvBD/DgQ72VFb15ykluUgWWSR/xS35V+R5a7sSUJVxsxmiFbNNuL4g5FqabGyB1BNKWUPpOdVpYGo0C5jwCdxQQCTvPYjxKkMQz2fFY0obrwk0UbK9VrkYHYlJf/
-ZcKe4zRwonn2G8TARY1CZ4dXu0og="
 language: node_js
 
 node_js:
@@ -24,4 +20,4 @@ after_script:
   - git config user.email "doc"
   - git add -A
   - git commit -m "Update docs"
-  - git push -f "https://${GH_Token}@${GH_REF}" master:gh-pages
+  - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
