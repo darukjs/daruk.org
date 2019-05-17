@@ -1,7 +1,7 @@
 module.exports = {
   title: "Daruk",
   description: "Daruk, a typescript web framework.",
-  base: "/daruk.org/",
+  base: "/",
   themeConfig: {
     logo: "/logo.png",
     logoLink: "https://github.com/darukjs/daruk",
