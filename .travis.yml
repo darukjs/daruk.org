@@ -16,8 +16,8 @@ after_script:
   - cp CNAME docs/.vuepress/dist/
   - cd docs/.vuepress/dist
   - git init
-  - git config user.name "doc"
-  - git config user.email "doc"
+  - git config user.name "xiaojue"
+  - git config user.email "designsor@gmail.com"
   - git add -A
   - git commit -m "Update docs"
   - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
