@@ -10,6 +10,7 @@
 ```ts
 export default function() {
   return {
+    // `cronTime` 使用linux下的 corntab 规则
     cronTime: "* * * * * *", //一秒一次
     // 定时器触发的回调
     onTick: function(this: any) {
