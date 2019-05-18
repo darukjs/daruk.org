@@ -23,6 +23,6 @@
   "homepage": "https://github.com/darukjs/daruk.org#readme",
   "devDependencies": {},
   "dependencies": {
-    "vuepress": "^1.0.0-alpha.44"
+    "vuepress": "^0.14.11"
   }
 }
