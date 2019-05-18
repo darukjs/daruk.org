@@ -57,5 +57,6 @@ module.exports = {
     ]
   },
   head: [["link", { rel: "shortcut icon", href: "/logo.png" }]],
-  plugins: ["@vuepress/active-header-links"]
+  plugins: ["@vuepress/active-header-links"],
+  ga: "UA-110549153-3"
 };
