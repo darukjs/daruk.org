@@ -52,4 +52,4 @@ DarukEvents.on("exit", (err: Error, daruk: Daruk) => {
 });
 ```
 
-注意 exit 事件的回调中只能执行同步操作，如果想做异步操作，请参考 [Daruk.exitHook](./api.html#exithook)
+注意 exit 事件的回调中只能执行同步操作，如果想做异步操作，请参考 [Daruk.exitHook](../api/api.md#exithook)
