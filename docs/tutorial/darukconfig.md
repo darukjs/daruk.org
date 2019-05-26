@@ -63,7 +63,7 @@ daruk 继承自 koa，比如有些中间件需要传递 koa 实例作为参数�
 export default function () {
   const darukConfig:any = {}
   // 定义中间件执行顺序
-  darukConfig.middlewareOrder = ['koa2-cors', 'daurk-test-middleware']
+  darukConfig.middlewareOrder = ['koa2-cors', 'daruk-test-middleware']
   // 定义中间件
   // darukConfig.middleware 对象的 key 即是用在 middlewareOrder 中的中间件名字
   darukConfig.middleware = {

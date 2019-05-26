@@ -115,9 +115,9 @@ daruk 会按照约定的目录加载 middleware、controller、service 等，不
 // src/middleware/index.ts
 export default function(daruk) {
   daruk.registerMiddleware({
-    // name 注册内容的 name，对应 daurk 自动 load 时的文件名或者文件夹名
+    // name 注册内容的 name，对应 daruk 自动 load 时的文件名或者文件夹名
     name: "koa-test-mid",
-    // export 导出的内容，对应 daurk 自动 load 时，模块导出的内容
+    // export 导出的内容，对应 daruk 自动 load 时，模块导出的内容
     export: async function(ctx, next) {
       await next();
     }

@@ -21,7 +21,7 @@ services
 |   ├── someLogic.ts
 ```
 
-service `文件`或者`文件夹`中的 index.ts 需要导出 Daruk.BaseService 的子类，在该类中可以通过 this.app 访问 daurk 实例，通过 this.ctx 访问 context：
+service `文件`或者`文件夹`中的 index.ts 需要导出 Daruk.BaseService 的子类，在该类中可以通过 this.app 访问 daruk 实例，通过 this.ctx 访问 context：
 
 ```ts
 // src/services/userInfo.ts
