@@ -34,4 +34,14 @@ export default () => {
 };
 ```
 
-注意：路径/utils下添加新的文件夹，不需要像services那样，在typings下做出声明。
+注意：
+
+- 路径/utils下添加新的文件夹，不需要像services那样，在typings下再做出声明。
+
+- daruk目前不会自动检测/utils下的目录结构。
+
+	例如：this.ctx.util只会出现如下图所示的代码提示。
+	
+	不会出现代码提示：“this.ctx.util.encypty”。
+
+![Image text](https://raw.githubusercontent.com/vincentCheng/images/master/2.jpg)
