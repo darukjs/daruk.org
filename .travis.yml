@@ -1,0 +1,23 @@
+env:
+  global:
+    - GH_REF: github.com/darukjs/daruk.org.git
+language: node_js
+
+node_js:
+  - 10
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+after_script:
+  - cp CNAME docs/.vuepress/dist/
+  - cd docs/.vuepress/dist
+  - git init
+  - git config user.name "xiaojue"
+  - git config user.email "designsor@gmail.com"
+  - git add -A
+  - git commit -m "Update docs"
+  - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages

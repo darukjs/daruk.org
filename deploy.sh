@@ -7,6 +7,7 @@ set -e
 npm run build
 
 # navigate into the build output directory
+cp CNAME docs/.vuepress/dist/
 cd docs/.vuepress/dist
 
 # if you are deploying to a custom domain
@@ -21,6 +22,6 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 # git push -f https://github.com/Youjingyu/clinic-doc-zh.git master:gh-pages
-git push -f git@github.com:daruk-framework/daruk.org.git master:gh-pages
+git push -f git@github.com:darukjs/daruk.org.git master:gh-pages
 
 cd -

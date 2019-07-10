@@ -2,7 +2,7 @@
 
 ## 什么是 TypeScript?
 
-TypeScript 是 Javascript 类型的超集，它可以编译成纯 Javascript。TypeScript 可以在任何浏览器，任何计算机和任何操作系统上运行，并且是开源得。
+TypeScript 是 Javascript 类型的超集，它可以编译成纯 Javascript。TypeScript 可以在任何浏览器，任何计算机和任何操作系统上运行，并且是开源的。
 
 ## 如何运行 TypeScript?
 

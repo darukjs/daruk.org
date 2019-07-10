@@ -5,7 +5,7 @@ Daruk 是对 Koa2 的更上一层封装，对路由层，ctx，web 服务的生�
 为了方便大家快速上手 Daruk ,我们提供了一个 ts 项目的脚手架，方便大家初始化和学习 Daruk 代码，通过 daruk cli 安装：
 
 ```bash
-$ daruk init my-project 'daruk-framework/daruk-template#nodejs-ts-scaffold'
+$ daruk init my-project 'darukjs/daruk-template#nodejs-ts-scaffold'
 $ tree -L 1
 
 ├── README.md

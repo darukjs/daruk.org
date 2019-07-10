@@ -27,7 +27,7 @@ new Daruk("myapp");
 
 ## access 事件
 
-当完用户请求我们的服务，我们的服务响应用户后，会触发 `access` 事件：
+当用户的请求被响应完成之后，会触发 `access` 事件：
 
 ```ts
 import { DarukEvents, Context } from "daruk";
@@ -52,4 +52,4 @@ DarukEvents.on("exit", (err: Error, daruk: Daruk) => {
 });
 ```
 
-注意 exit 事件的回调中只能执行同步操作，如果想做异步操作，请参考 [Daruk.exitHook](./api.html#exithook)
+注意 exit 事件的回调中只能执行同步操作，如果想做异步操作，请参考 [Daruk.exitHook](../api/api.md#exithook)

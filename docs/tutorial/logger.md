@@ -8,7 +8,7 @@
 
 ```javascript
 // daruk.logger 只是对 daruk-logger 实例的引用
-// daruk-logger 文档：https://github.com/daruk-framework/daruk-logger
+// daruk-logger 文档：https://github.com/darukjs/daruk-logger
 daruk.logger.warn("warn message"); // 警告日志
 daruk.logger.error({ message: "error message" }); // 错误日志，Object 会被 stringify
 daruk.logger.info(); // 普通日志
