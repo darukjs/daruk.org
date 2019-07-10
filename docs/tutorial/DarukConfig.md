@@ -36,8 +36,15 @@
 `app.ts`是  应用  的入口文件，通常代码如下：
 
 ```typescript
-import daruk from "./daruk.init.ts";
-daruk.run(3000);
+import daruk from "./daruk.init";
+
+const port = process.env.PORT || 3000;
+
+daruk.run(port, () => {
+  daruk.logger.info(`服务已启动，访问 http://localhost:3000 查看效果`);
+});
+
+export default daruk;
 ```
 
 为了在非约定目录能够方便地拿到 daruk 实例，我们通常选择在`daruk.init.ts`中初始化 daruk，然后在需要的地方能够直接`import`：

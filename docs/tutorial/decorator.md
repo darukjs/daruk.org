@@ -67,15 +67,126 @@ export default class MySqlConnector {
 
 - @middleware，接收一个字符串参数，指定要应用的中间件的名字，名字由 middlewares 目录或 daruk.config.ts 中定义的 middleware 确定
 
-示例：
+示例一：
+
+- 创建脚本 “ src/middlewares/testMid.ts”，代码如下：
 
 ```typescript
-// src/controllers/user.ts
+import { Context, Daruk } from "daruk";
+
+export default (daruk: Daruk) => {
+  return async (ctx: Context, next: Function) => {
+    console.log("测试 testMid.ts");
+    return next();
+  };
+};
+```
+
+- 创建脚本 “src/controllers/myMid.ts”，代码如下：
+
+```typescript
+import { BaseController, post } from "daruk";
+
+export default class User extends BaseController {
+  @middleware("testMid")
+  @get("/testmid")
+  public index() {
+    console.log("测试 myMid.ts");
+  }
+}
+```
+
+运行命令：
+
+```bash
+npm run dev
+```
+
+当你进入网址："你的网址"/myMid/testmid 的时候，控制台输出
+
+```bash
+测试 testMid.ts
+测试 myMid.ts
+```
+
+- 注意：
+- “myMid”中是平常的路由中间件，用于“运行特定路由”时执行。
+- 如果是“登录验证”，一般所有的路由都需要验证。具体方法请参考“示例二”。
+
+示例二：
+
+- 创建脚本 “ src/middlewares/login-validator.ts”，代码如下：
+
+```typescript
+import { Context, Daruk } from "daruk";
+
+export default (daruk: Daruk) => {
+  return async (ctx: Context, next: Function) => {
+    console.log("测试 login-validator.ts");
+    return next();
+  };
+};
+```
+
+- 创建脚本 “src/controllers/user.ts”，代码如下：
+
+```typescript
+import { BaseController, post } from "daruk";
+
+export default class User extends BaseController {
+  @post("/login")
+  public index() {
+    console.log("测试 login.ts");
+  }
+}
+```
+
+在 daruk.config.ts 中添加中间件“login-validator”
+
+```typescript
+darukConfig.middlewareOrder = [
+    ...,
+    'login-validator'
+  ];
+```
+
+运行命令：
+
+```bash
+npm run dev
+```
+
+当你进入网址："你的网址"/user/login 的时候，控制台输出
+
+```bash
+测试 login-validator.ts
+测试 login.ts
+```
+
+达到的效果为：
+
+- 进入所有的路由之前，都需要通过“登录验证”。
+
+如果在 @post("/login") 上面再添加 @middleware("testMid") ，例如：
+
+```typescript
 import { BaseController, post } from "daruk";
 
 export default class User extends BaseController {
   @middleware("login-validator")
   @post("/login")
-  public index() {}
+  public index() {
+    console.log("测试 login.ts");
+  }
 }
 ```
+
+运行后则会打印出这样的结果：
+
+```bash
+测试 login-validator.ts
+测试 login-validator.ts
+测试 login.ts
+```
+
+显然这有些不符合程序设计预期。

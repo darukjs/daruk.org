@@ -12,7 +12,7 @@ $ tree -L 1
 ├── node_modules
 ├── package.json
 ├── prettier.config.js
-├── src # ts 工程目录,index.ts为入口文件
+├── src # ts 工程目录,app.ts为入口文件
 ├── tests
 ├── tsconfig.json
 ├── tslint.json
@@ -43,17 +43,40 @@ app.listen(3000);
 yarn add daruk
 ```
 
-```ts
-// src/index.ts
-import { Daruk } from "daruk";
+请看入口文件：
 
-let app = new Daruk("myapp", {
-  rootPath: __dirname,
-  debug: true // 开启调试模式
+```ts
+// src/app.ts
+import daruk from "./daruk.init";
+
+const port = process.env.PORT || 3000;
+
+daruk.run(port, () => {
+  daruk.logger.info(`服务已启动，访问 http://localhost:3000 查看效果`);
 });
 
-app.run(3000);
+export default daruk;
 ```
+
+其中 daruk.init.ts 完成部分初始化工作
+
+```ts
+// src/daruk.init.ts
+import { Daruk } from "daruk";
+
+// @ts-ignore
+const prod =
+  process.env.NODE_ENV === "prod" || process.env.NODE_ENV === "production";
+
+const options = {
+  rootPath: __dirname,
+  debug: !prod
+};
+
+export default new Daruk("你的项目名字", options);
+```
+
+下面是“控制器”的默认入口：
 
 ```ts
 // src/controllers/index.ts
