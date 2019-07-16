@@ -36,8 +36,15 @@
 `app.ts`是  应用  的入口文件，通常代码如下：
 
 ```typescript
-import daruk from "./daruk.init.ts";
-daruk.listen(3000);
+import daruk from "./daruk.init";
+
+const port = process.env.PORT || 3000;
+
+daruk.run(port, () => {
+  daruk.logger.info(`服务已启动，访问 http://localhost:3000 查看效果`);
+});
+
+export default daruk;
 ```
 
 为了在非约定目录能够方便地拿到 daruk 实例，我们通常选择在`daruk.init.ts`中初始化 daruk，然后在需要的地方能够直接`import`：
@@ -63,7 +70,7 @@ daruk 继承自 koa，比如有些中间件需要传递 koa 实例作为参数�
 export default function () {
   const darukConfig:any = {}
   // 定义中间件执行顺序
-  darukConfig.middlewareOrder = ['koa2-cors', 'daruk-test-middleware']
+  darukConfig.middlewareOrder = ['koa2-cors', 'daurk-test-middleware']
   // 定义中间件
   // darukConfig.middleware 对象的 key 即是用在 middlewareOrder 中的中间件名字
   darukConfig.middleware = {
