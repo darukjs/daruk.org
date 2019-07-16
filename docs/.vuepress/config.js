@@ -1,11 +1,11 @@
 module.exports = {
   title: "Daruk",
   description: "Daruk, a typescript web framework.",
-  base: "/daruk.org/",
+  base: "/",
   themeConfig: {
     logo: "/logo.png",
-    logoLink: "https://github.com/daruk-framework/daruk",
-    repo: "daruk-framework/daruk.org",
+    logoLink: "https://github.com/darukjs/daruk",
+    repo: "darukjs/daruk.org",
     editLinks: true,
     docsDir: "docs",
     sidebar: [
@@ -57,5 +57,6 @@ module.exports = {
     ]
   },
   head: [["link", { rel: "shortcut icon", href: "/logo.png" }]],
-  plugins: ["@vuepress/active-header-links"]
+  plugins: ["@vuepress/active-header-links"],
+  ga: "UA-110549153-3"
 };

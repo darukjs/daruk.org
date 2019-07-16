@@ -9,7 +9,7 @@ Daruk 只是在 Koa 上做了一定的约定并添加了部分方便的功能，
 使用 `Daruk` 官方脚手架一键生成项目
 
 ```bash
-# 全局安装daurk脚手架
+# 全局安装daruk脚手架
 cnpm i -g daruk-cli
 
 # 初始化项目

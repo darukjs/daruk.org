@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daruk-framework/daruk.org.git"
+    "url": "git+https://github.com/darukjs/daruk.org.git"
   },
   "keywords": [
     "daruk",
@@ -18,11 +18,11 @@
   "author": "Youjingyu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daruk-framework/daruk.org/issues"
+    "url": "https://github.com/darukjs/daruk.org/issues"
   },
-  "homepage": "https://github.com/daruk-framework/daruk.org#readme",
+  "homepage": "https://github.com/darukjs/daruk.org#readme",
   "devDependencies": {},
   "dependencies": {
-    "vuepress": "^1.0.0-alpha.44"
+    "vuepress": "^1.0.2"
   }
 }
