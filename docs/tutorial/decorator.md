@@ -36,7 +36,7 @@ export default class ContactList extends BaseController {
 
 ## 框架装饰器
 
-Daruk 会自动将约定目录中的内容挂载到 Daruk 实例或者 context，但在不方便拿到 Daruk 实例后者 context 的地方要怎么获取这些内容呢。这时，框架级的装饰器就派上用场了。支持的框架装饰器有：
+Daruk 会自动将约定目录中的内容挂载到 Daruk 实例或者 context，但在不方便拿到 Daruk 实例或者 context 的地方要怎么获取这些内容呢。这时，框架级的装饰器就派上用场了。支持的框架装饰器有：
 
 - @config，注入项目配置，可以接收一个字符串参数，指定要注入配置中的某个字段的内容
 - @util，注入 util，可以接收一个字符串参数，指定要注入的 util 名
