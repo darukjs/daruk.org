@@ -68,3 +68,21 @@ export default class User extends BaseController {
   }
 }
 ```
+
+## service 的添加
+
+- 创建脚本 src/services/TestService.ts
+- 在脚本 typings/daruk/services.d.ts 中注册 TestService。如下所示：
+
+```typescript
+import "daruk";
+...;
+import TestService from "../../src/services/TestService";
+
+declare module "daruk" {
+  interface Service {
+    ...;
+    TestService: TestService;
+  }
+}
+```

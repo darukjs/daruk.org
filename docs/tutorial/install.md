@@ -11,6 +11,8 @@ $ cd daruk-example
 $ npm run dev
 ```
 
+注意：windows 下有时候会启动失败，请删除"node_modules"，再运行“cnpm install”或“npm install ”重新安装。
+
 ## 独立模块安装
 
 可直接使用 yarn，npm，cnpm 在支持[ts 的环境中安装](./typescript.md),但是需要额外配置和定义一些目录规范，详情参考[目录文件规范](./specification.md).
