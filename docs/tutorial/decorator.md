@@ -171,7 +171,7 @@ npm run dev
 
 - 进入所有的路由之前，都需要通过“登录验证”。
 
-如果在 @post("/login") 上面再添加 @middleware("testMid") ，例如：
+如果在 @post("/login") 上面再添加 @middleware("login-validator") ，例如：
 
 ```typescript
 import { BaseController, post } from "daruk";
