@@ -11,7 +11,7 @@
 | 服务模块目录   | servicePath     | 'services'             | ✕    | 可以自定义的 service 目录,比如一个 proxy api 代理模块，比如查询 DB 的模块，比如 MVC 中的 model 和 data 层都可以在 service 目录中编写 |
 | 万能目录       | gluePath        | 'glues'                | ✕    | 万能目录，和 service，controller 目录不同的是，他不能访问 ctx，更适合编写可单元测试的独立复用模块                                        |
 | 中间件目录     | middlewares     | 'middlewares'          | ✕    | 中间件目录，会按照[daruk.config.ts](./DarukConfig.md)中的 middlewareOrder 来进行顺序加载                                             |
-| 工具集目录     | utilPath        | 'utils'                | ✕    | 工具集目录，不能访问 ctx，适合编写独立可复用的工具函数,工具类                                                                        |
+| 工具集目录     | utilPath        | 'utils'                | ✕    | 工具集目录，不能访问 ctx，适合编写独立可复用的工具函数，工具类                                                                        |
 | 定时器目录     | timerPath       | 'timers'               | ✕    | 可以放置一些定时器任务，Daruk 提供了一个类 crontab 的辅助方法帮助你来控制你的定时任务                                                |
 | 配置项目录     | configPath      | 'config'               | ✕    | 放置项目中的一些通用配置项，方便管理获取                                                                                             |
 | daruk 配置文件 | darukConfigPath | 'daruk.config'(文件名) | ✕    | 专门给 daruk 的设置的配置文件地址                                                                                                    |
