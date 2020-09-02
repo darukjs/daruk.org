@@ -7,36 +7,37 @@ module.exports = {
     logoLink: "https://github.com/darukjs/daruk",
     repo: "darukjs/daruk.org",
     editLinks: true,
+    sidebarDepth: 2,
     docsDir: "docs",
     sidebar: [
       "/",
       {
         title: "教程",
+        collapsable: false,
         children: [
           "tutorial/install",
-          "tutorial/about",
           "tutorial/starup",
-          "tutorial/controller",
-          "tutorial/service",
-          "tutorial/middleware",
-          "tutorial/module",
-          "tutorial/plugin",
-          "tutorial/timer",
           "tutorial/decorator",
+          "tutorial/lifecycle",
           "tutorial/deploy",
         ],
       },
+      /*
       {
         title: "API 手册",
-        children: ["api/api"],
+        collapsable: false,
+        children: [
+          "api/DarukServer",
+          "api/darukContainer",
+          "api/decorators",
+          "api/TYPES",
+        ],
       },
+      */
       {
         title: " 周边插件",
-        children: [
-          "ecological/plugin",
-          "ecological/logger",
-          "ecological/performance",
-        ],
+        collapsable: false,
+        children: ["ecological/performance"],
       },
     ],
   },

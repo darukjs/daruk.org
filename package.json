@@ -21,8 +21,7 @@
     "url": "https://github.com/darukjs/daruk.org/issues"
   },
   "homepage": "https://github.com/darukjs/daruk.org#readme",
-  "devDependencies": {},
   "dependencies": {
-    "vuepress": "^1.0.2"
+    "vuepress": "^1.5.4"
   }
 }
