@@ -15,26 +15,16 @@ import { DarukServer } from "daruk"; // 引入 DarukServer
 
 (async () => {
   // 因为部分实例方法是异步的，所以我们一般都在启动服务器时，用 async 匿名函数来配合 await 简化我们的代码。
-  let DarukApp = DarukServer();
+  let DarukApp = DarukServer({
+    rootPath: __dirname,
+    middlewareOrder: ["koa-ejs", "koa-favicon"],
+  });
 })();
 ```
 
-我们通过拿到 Daruk 实例后，我们的实例方法主要有：`initOptions`,`loadFile`,`initPlugin`,`listen` 这 4 个启动方法，下边我们就简单介绍一下他们的各个功能和作用。
+比如我们可以设置 `options` 指定我们的 `rootPath` 项目根目录是哪个目录，还有可以指定我们加载的`middlewareOrder`中间件顺序，上面的代码我们就成功的配置了我们的根目录为当前文件的工作目录，并且指定加载了两个服务中间件，他们的执行顺序就是数组定义顺序。先执行 `koa-ejs` 再执行 `koa-favicon`。
 
-## 初始化参数
-
-### initOptions
-
-`initOptions` 方法的作用是用来初始化实例参数的，比如我们可以指定我们的 `rootPath` 项目根目录是哪个目录，还有可以指定我们加载的`middlewareOrder`中间件顺序，比如：
-
-```typescript
-DarukApp.initOptions({
-  rootPath: __dirname,
-  middlewareOrder: ["koa-ejs", "koa-favicon"],
-});
-```
-
-上面的代码我们就成功的配置了我们的根目录为当前文件的工作目录，并且指定加载了两个服务中间件，他们的执行顺序就是数组定义顺序。先执行 `koa-ejs` 再执行 `koa-favicon`。
+我们通过拿到 Daruk 实例后，我们的实例方法主要有：`loadFile`,`binding`,`listen` 这 3 个启动方法，下边我们就简单介绍一下他们的各个功能和作用。
 
 ## 加载项目源文件
 
@@ -56,9 +46,9 @@ await DarukApp.loadFile("./services");
 
 ## 初始化源文件和插件
 
-### initPlugin
+### binding
 
-我们使用 `loadFile` 方法来加载完毕我们的类文件后，我们需要调用 `initPlugin` 方法来进行挂载，这个方法不但会挂载外部文件，也会挂载 Daruk 内部的内置插件和功能，所以`initPlugin`方法必须被主动调用一次。不可以和 `initOptions`或者和实例化的构造器中自执行，因为我们的源文件中可能会有一些异步插件或者方法，需要等他们全部执行完毕才可以进行真正的 `initPlugin`，我们下面举一个特殊的例子。
+我们使用 `loadFile` 方法来加载完毕我们的类文件后，我们需要调用 `binding` 方法来进行挂载，这个方法不但会挂载外部文件，也会挂载 Daruk 内部的内置插件和功能，所以`binding`方法必须被主动调用一次。不可以在实例化的构造器中自执行，因为我们的源文件中可能会有一些异步插件或者方法，需要等他们全部执行完毕才可以进行真正的 `binding`，我们下面举一个特殊的例子。
 
 ```typescript
 let dbConfig = await request("http://config/db.config");
@@ -72,10 +62,10 @@ class Db {
   }
 }
 
-await DarukApp.initPlugin();
+await DarukApp.binding();
 ```
 
-我们首先假设我们的服务初始化需要依赖一些不确定的外部因素，比如一份远程的配置，有可能是 http 的 api，也可能是一份 etcd 的配置等等。然后我们拉取到这个配置后，才能完成我们的某些功能的初始化，比如我上面举例的这个 Db 类，返回的是我们连接 DB 的实例，而这个实例又因为需要异步依赖，那么我们就可以在初始化之前，也就是`initPlugin`之前，做一些异步拉取的功能了。
+我们首先假设我们的服务初始化需要依赖一些不确定的外部因素，比如一份远程的配置，有可能是 http 的 api，也可能是一份 etcd 的配置等等。然后我们拉取到这个配置后，才能完成我们的某些功能的初始化，比如我上面举例的这个 Db 类，返回的是我们连接 DB 的实例，而这个实例又因为需要异步依赖，那么我们就可以在初始化之前，也就是`binding`之前，做一些异步拉取的功能了。
 
 这样我们就可以保证我们的服务在启动后，DB 初始化之前的那个间隔里有一些问题了，比如配置拉取失败，或者拉取和注册之前，就有人需要调用 Db 类，从而导致异常。
 
@@ -88,7 +78,7 @@ await DarukApp.initPlugin();
 启动 Http 服务:
 
 ```typescript
-await DarukApp.listen(8080);
+DarukApp.listen(8080);
 ```
 
 启动 Https 服务:

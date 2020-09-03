@@ -100,7 +100,6 @@ import ejs = require("koa-ejs");
 import { join } from "path";
 import { Daruk, defineMiddleware, injectable, MiddlewareClass } from "daruk";
 
-@injectable()
 @defineMiddleware("koa-ejs")
 class KoaEjs implements MiddlewareClass {
   public initMiddleware(daruk: Daruk) {
@@ -124,7 +123,6 @@ import {
   Next,
 } from "daruk";
 
-@injectable()
 @defineMiddleware("cors")
 class Cors implements MiddlewareClass {
   public initMiddleware(daruk: Daruk) {
@@ -145,7 +143,6 @@ class Cors implements MiddlewareClass {
 而用法也很简单，比如我们可以在全局让这个 middleware 生效，只需要在 initOptions 中定义 order 即可，当然也可以非全局生效，利用 `@middleware` 来生效单路由局部中间件。
 
 ```typescript
-@injectable()
 @controller()
 class Index {
   @middleware("cors")
@@ -193,7 +190,6 @@ class PrefixIndexB {
 这种请求链路上生效的类，在 Daruk 中我们用 `@service` 装饰器来定义，他有一个优势就是，可以在 service 中方便的拿到 ctx 上下文，而它本身又和 controller 类是解耦合的。
 
 ```typescript
-@injectable()
 @service()
 class Logger {
   public ctx!: DarukContext;
@@ -203,14 +199,13 @@ class Logger {
   }
 }
 
-@injectable()
 @controller()
 class Index {
   @inject("Logger") public logger;
   @get("/index")
   public async index(ctx: DarukContext, next: Next) {
     ctx.body = "index";
-    logger.info("access index");
+    this.logger.info("access index");
   }
 }
 ```
@@ -222,7 +217,6 @@ class Index {
 利用 timer 装饰器注入的定时任务类，可以方便的帮开发者实现简单的定时任务功能。
 
 ```typescript
-@injectable()
 @timer()
 class MyTimer implements TimerClass {
   public cronTime!: string;
@@ -264,7 +258,6 @@ class MyTimer implements TimerClass {
 
 ```typescript
 @plugin()
-@injectable()
 class DarukExitHook implements PluginClass {
   public async initPlugin(daruk: Daruk) {
     let exitHook = new ExitHook({
