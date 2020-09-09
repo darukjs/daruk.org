@@ -5,10 +5,15 @@ module.exports = {
   themeConfig: {
     logo: "/logo.png",
     logoLink: "https://github.com/darukjs/daruk",
-    repo: "darukjs/daruk.org",
-    editLinks: true,
+    repo: "darukjs/daruk",
+    editLinks: false,
     sidebarDepth: 2,
     docsDir: "docs",
+    nav: [
+      { text: "首页", link: "/" },
+      { text: "教程", link: "/tutorial/install.html" },
+      { text: "API", link: "https://doc.darukjs.com", target: "_blank" },
+    ],
     sidebar: [
       "/",
       {
@@ -22,18 +27,6 @@ module.exports = {
           "tutorial/deploy",
         ],
       },
-      /*
-      {
-        title: "API 手册",
-        collapsable: false,
-        children: [
-          "api/DarukServer",
-          "api/darukContainer",
-          "api/decorators",
-          "api/TYPES",
-        ],
-      },
-      */
       {
         title: " 周边插件",
         collapsable: false,
