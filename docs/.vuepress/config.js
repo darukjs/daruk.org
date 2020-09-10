@@ -2,6 +2,7 @@ module.exports = {
   title: "Daruk",
   description: "Daruk, a typescript web framework.",
   base: "/",
+  theme: "antdocs",
   themeConfig: {
     logo: "/logo.png",
     logoLink: "https://github.com/darukjs/daruk",
