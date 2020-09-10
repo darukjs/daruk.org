@@ -3,6 +3,7 @@ module.exports = {
   description: "Daruk, a typescript web framework.",
   base: "/",
   theme: "antdocs",
+  homepage: {},
   themeConfig: {
     logo: "/logo.png",
     logoLink: "https://github.com/darukjs/daruk",
@@ -16,11 +17,11 @@ module.exports = {
       { text: "API", link: "https://doc.darukjs.com", target: "_blank" },
     ],
     sidebar: [
-      "/",
       {
         title: "教程",
         collapsable: false,
         children: [
+          "tutorial/about",
           "tutorial/install",
           "tutorial/starup",
           "tutorial/decorator",
