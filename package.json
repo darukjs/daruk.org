@@ -24,5 +24,8 @@
   "dependencies": {
     "vuepress": "^1.5.4",
     "vuepress-theme-antdocs": "^1.1.1"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-last-updated": "^1.5.4"
   }
 }

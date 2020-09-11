@@ -36,6 +36,19 @@ module.exports = {
     ],
   },
   head: [["link", { rel: "shortcut icon", href: "/logo.png" }]],
-  plugins: ["@vuepress/active-header-links"],
+  plugins: {
+    "@vuepress/active-header-links": {
+      sidebarLinkSelector: ".sidebar-link",
+      headerAnchorSelector: ".header-anchor",
+    },
+    "@vuepress/last-updated": {
+      transformer: (timestamp, lang) => {
+        // 不要忘了安装 moment
+        const moment = require("moment");
+        moment.locale(lang);
+        return moment(timestamp).fromNow();
+      },
+    },
+  },
   ga: "UA-110549153-3",
 };
