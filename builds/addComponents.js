@@ -7,7 +7,7 @@ findMarkdown(rootDir, writeComponents);
 
 function writeComponents(dir) {
   if (!/README/.test(dir)) {
-    fs.appendFile(dir, `\n \n <comment-comment/> \n `, (err) => {
+    fs.appendFile(dir, `\n \n <comment/> \n `, (err) => {
       if (err) throw err;
       console.log(`add components to ${dir}`);
     });
