@@ -10,8 +10,8 @@
 mkdir daruk-demo # 创建项目目录
 cd daruk-demo # 进入项目目录
 npm init # 使用 npm 初始化项目信息
-npm add daruk ts-node typescript # 安装 Daruk 框架和 typescript
-mkidr src # 创建源码目录
+npm install daruk ts-node typescript # 安装 Daruk 框架和 typescript
+mkdir src # 创建源码目录
 touch src/index.ts # 创建入口文件
 touch tsconfig.json # 创建 typescript 的项目配置文件
 ```
