@@ -14,6 +14,11 @@ module.exports = {
       { text: "首页", link: "/" },
       { text: "教程", link: "/tutorial/install.html" },
       { text: "API", link: "https://doc.darukjs.com", target: "_blank" },
+      {
+        text: "1.x 文档",
+        link: "https://youjingyu.github.io/daruk-doc/",
+        target: "_blank",
+      },
     ],
     sidebar: [
       {
