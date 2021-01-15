@@ -192,7 +192,7 @@ class PrefixIndexB {
 ```typescript
 @service()
 class Logger {
-  public ctx!: DarukContext;
+  @inject("ctx") public ctx!: DarukContext;
   public info(msg) {
     let path = this.ctx.path;
     console.log(msg, path);
