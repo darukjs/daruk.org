@@ -29,7 +29,7 @@ class MyClassB {
 
 ## inject 装饰器
 
-我们在上面定义了 2 个 Class 后，我们可能需要一起类把他们两个串联起来，我们可以利用 `@inject` 来进行关联注入。
+我们在上面定义了 2 个 Class 后，我们可能需要一个类把他们两个串联起来，我们可以利用 `@inject` 来进行关联注入。
 
 ```typescript
 @injectable()
