@@ -7,7 +7,7 @@ actionText: 教程
 actionLink: /tutorial/install
 features:
   - title: 基于 Koa2
-    details: 使用 Typescript 开发的轻量级 web 框架,兼容 Koa 生态。
+    details: 使用 Typescript 开发的轻量级 web 框架，兼容 Koa 生态。
   - title: 100% 的Typescript
     details: 使用 inversifyjs 的 IoC 容器管理依赖，快速上手 Typescript 编程体验。
   - title: 装饰器函数
