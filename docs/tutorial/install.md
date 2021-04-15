@@ -37,7 +37,7 @@ import { DarukServer, controller, get, DarukContext } from "daruk";
 })();
 ```
 
-## 编写 tsconfig.json 文件
+## 编写 `tsconfig.json` 文件
 
 ```json
 {
